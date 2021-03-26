@@ -8,7 +8,7 @@ while gameVars.player_choice is False:
     print("AI Lives:", gameVars.computer_lives, "/", gameVars.total_lives)
     print("Player Lives:", gameVars.player_lives, "/", gameVars.total_lives)
     print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_-")
-    print("Let's play! Choose your weapon. Or type bye to exit\n") #\n means "new line"
+    print("Let's play! Choose your weapon, or type 'bye' to exit..\n") #\n means "new line"
     gameVars.player_choice = input("Choose rock, paper, or scissors: \n")
 
     if gameVars.player_choice == "bye":
