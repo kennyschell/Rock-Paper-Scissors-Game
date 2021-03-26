@@ -1,52 +1,29 @@
 from random import randint
-
-# re-import our game variables
-from gameComponents import gameVars, winLose
-
+#re-import our game variables
+from gameComponents import gameVars, winLose, comparisonCode
 while gameVars.player_choice is False:
-    print("==================*/ RPS GAME */====================")
-    print("Computer Lives:", gameVars.computer_lives, "/", gameVars.total_lives)
-    print("Player Lives:", gameVars.player_lives, "/", gameVars.total_lives)
-    print("====================================================")
-    print("Choose your weapon! Or type quit to exit\n") #\n means "new line"
-    gameVars.player_choice = input("Choose rock, paper, or scissors: \n")
+    print("-_-_-_-_-_-_-_-_-//*// RPS GAME //*//-_-_-_-_-_-_-_-_-")
+    print("Frank's Lives:", gameVars.computer_lives, "/", gameVars.total_lives)
+    print("Your Lives:", gameVars.player_lives, "/", gameVars.total_lives)
+    print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_-_-_-_-_-_-_-_-_-")
+    print("Welcome to Rock, Paper, Scissors with Frank! I'm Frank, and I live in your machine..Let's play! Go on, select a weapon! Or type 'bye' to leave me here all alone..\n") #\n means "new line"
+    gameVars.player_choice = input("Select rock, paper, or scissors: \n")
 
-    if gameVars.player_choice == "quit":
-        print("You chose to quit")
+    if gameVars.player_choice == "bye":
+        print("Please don't leave me.. But if you must.. Go ahead and type 'bye'...")
         exit()
 
     gameVars.computer_choice = gameVars.choices[randint(0, 2)]
 
-    print("user chose: " + gameVars.player_choice)
-    print("computer chose: " + gameVars.computer_choice)
+    print("I see you chose: " + gameVars.player_choice)
+    print("I went with: " + gameVars.computer_choice)
 
-    if gameVars.computer_choice == gameVars.player_choice:
-        print("tie")
-    elif gameVars.computer_choice == "rock":
-        if gameVars.player_choice == "scissors":
-            gameVars.player_lives -= 1
-            print("you lose! player lives:", gameVars.player_lives)
-        else:
-            print("you win!")
-            gameVars.computer_lives -= 1
-    elif gameVars.computer_choice == "paper":
-        if gameVars.player_choice == "rock":
-            gameVars.player_lives -= 1
-            print("you lose! player lives:", gameVars.player_lives)
-        else:
-            print("you win!")
-            gameVars.computer_lives -= 1
-    elif gameVars.computer_choice == "scissors":
-        if gameVars.player_choice == "paper":
-            gameVars.player_lives -= 1
-            print("you lose! player lives:", gameVars.player_lives)
-        else:
-            print("you win!")
-            gameVars.computer_lives -= 1
+    comparisonCode.shoot()
 
     if gameVars.player_lives == 0:
         winLose.winorlose("lost")
-    elif gameVars.computer_lives == 0:
+
+    if gameVars.computer_lives == 0:
         winLose.winorlose("won")
-    else:
-        gameVars.player_choice = False
+
+    gameVars.player_choice = False
